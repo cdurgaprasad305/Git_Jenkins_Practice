@@ -1,0 +1,4 @@
+------------Chrome Driver Path : E:\Python2024\DP_POM_Framework\drivers\chromedriver.exe
+-------Excel file Path E:\Python2024\DP_POM_Framework\utilities\testdata.xls
+----Username : Prasad
+----Password : ravi@gmail.com

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A sample HTML page demonstrating all essential HTML tags">
+    <title>HTML Tags Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to HTML Tags Demonstration</h1>
+        <nav>
+            <ul>
+                <li><a href="#text">Text Tags</a></li>
+                <li><a href="#list">Lists</a></li>
+                <li><a href="#table">Table</a></li>
+                <li><a href="#form">Forms</a></li>
+                <li><a href="#media">Media</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Text Section -->
+        <section id="text">
+            <h2>Text Tags</h2>
+            <p>This is a paragraph tag (<code>&lt;p&gt;</code>).</p>
+            <h3>Headings:</h3>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+            <h3>Text Formatting:</h3>
+            <p><strong>Bold Text</strong>, <em>Italic Text</em>, <mark>Highlighted Text</mark>, <del>Strikethrough</del>, <sup>Superscript</sup>, <sub>Subscript</sub>.</p>
+        </section>
+
+        <!-- Lists -->
+        <section id="list">
+            <h2>Lists</h2>
+            <h3>Ordered List:</h3>
+            <ol>
+                <li>Item One</li>
+                <li>Item Two</li>
+                <li>Item Three</li>
+            </ol>
+            <h3>Unordered List:</h3>
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Cherry</li>
+            </ul>
+            <h3>Definition List:</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>A language for building web pages.</dd>
+                <dt>CSS</dt>
+                <dd>A style sheet language for designing web pages.</dd>
+            </dl>
+        </section>
+
+        <!-- Table Section -->
+        <section id="table">
+            <h2>Table Example</h2>
+            <table border="1">
+                <caption>Student Information</caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>20</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>Jane</td>
+                        <td>22</td>
+                        <td>B</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Form Section -->
+        <section id="form">
+            <h2>Forms</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+                <fieldset>
+                    <legend>Select Gender:</legend>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </fieldset><br>
+                <label for="hobby">Choose a hobby:</label>
+                <select id="hobby" name="hobby">
+                    <option value="reading">Reading</option>
+                    <option value="sports">Sports</option>
+                    <option value="music">Music</option>
+                </select><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media">
+            <h2>Media Tags</h2>
+            <h3>Image:</h3>
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+            <h3>Video:</h3>
+            <video controls width="300">
+                <source src="sample.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <h3>Audio:</h3>
+            <audio controls>
+                <source src="sample.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 HTML Practice. All rights reserved.</p>
+    </footer>
+</body>
+</html>

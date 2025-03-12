@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Test User">
+    <title>Web Testing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Web Testing Sample Page</h1>
+    <p>This page is designed to include a variety of HTML elements for web testing purposes. Use Selenium or other tools to test functionalities.</p>
+
+    <!-- Links Section -->
+    <div class="section" id="links-section">
+        <h2>Links</h2>
+        <a href="https://example.com" id="external-link">Visit Example.com (External Link)</a><br>
+        <a href="#form-section" id="internal-link">Go to Form Section (Internal Link)</a><br>
+        <a href="#" id="broken-link">This is a broken link</a><br>
+    </div>
+
+    <!-- Forms Section -->
+    <div class="section" id="form-section">
+        <h2>Form</h2>
+        <form id="test-form">
+            <!-- Text Input -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+
+            <!-- Email Input -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
+
+            <!-- Password Input -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter a password"><br><br>
+
+            <!-- Radio Buttons -->
+            <fieldset>
+                <legend>Gender:</legend>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label><br>
+            </fieldset><br>
+
+            <!-- Checkbox -->
+            <label for="terms">
+                <input type="checkbox" id="terms" name="terms"> I agree to the terms and conditions
+            </label><br><br>
+
+            <!-- Dropdown -->
+            <label for="country">Country:</label>
+            <select id="country" name="country">
+                <option value="">Select your country</option>
+                <option value="us">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="india">India</option>
+                <option value="canada">Canada</option>
+            </select><br><br>
+
+            <!-- Text Area -->
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter your message"></textarea><br><br>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submit-button">Submit</button>
+
+            <!-- Reset Button -->
+            <button type="reset" id="reset-button">Reset</button>
+        </form>
+    </div>
+
+    <!-- Tables Section -->
+    <div class="section" id="table-section">
+        <h2>Table</h2>
+        <table id="test-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>30</td>
+                    <td>USA</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>25</td>
+                    <td>UK</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Amit Sharma</td>
+                    <td>28</td>
+                    <td>India</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Lists Section -->
+    <div class="section" id="lists-section">
+        <h2>Lists</h2>
+        <!-- Unordered List -->
+        <h3>Unordered List</h3>
+        <ul>
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Cherry</li>
+        </ul>
+
+        <!-- Ordered List -->
+        <h3>Ordered List</h3>
+        <ol>
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+        </ol>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="section" id="buttons-section">
+        <h2>Buttons</h2>
+        <button id="click-me-button" onclick="alert('Button Clicked')">Click Me</button>
+        <button id="disabled-button" disabled>Disabled Button</button>
+    </div>
+
+    <!-- Images Section -->
+    <div class="section" id="images-section">
+        <h2>Images</h2>
+        <img src="https://via.placeholder.com/150" alt="Sample Image" id="sample-image">
+    </div>
+
+<table id = "My Table" border = "1" "table Name = Prod">
+<tr>
+	<td> Sony 
+	<input type = "textbox"></td>
+	<td> LG 
+	<input type = "textbox"></td>
+	<td> Total
+	<input type = "textbox"></td>
+</tr>
+
+<tr>
+	<td> LG 
+	<input type = "textbox"></td>
+	<td> Sony
+	<input type = "textbox"></td>
+	<td> Total
+	<input type = "textbox"></td>
+</tr>
+
+<tr>
+	<td> Row2 Cell1 </td>
+	<td> Row2 Cell2 </td>
+</tr>
+<tr>
+     <td> <a href = "http://www.insidetable.com" id = mslinkid name = mssoft> Microsoft </A><br>  </td>
+</table>
+
+
+<table border = "3" style="width:300px">
+<tr>
+  <td>Jill</td>
+  <td>Smith</td>		
+  <td>
+<a href="http://www.google.com" target="_blank">Inner table link</a> </td>
+</tr>
+<tr>
+  <td>Eve</td>
+  <td>Jackson</td>		
+  <td><input type="checkbox" name="vehicle" value="BBike">I have a bike
+  <td><input type="checkbox" name="vehicle" value="Car">I have a car</td>  
+</tr>
+<tr>
+  <td>John</td>
+  <td>Doe</td>		
+  <td>80</td>
+   <td><table border = "3" style="width:100px">
+  <tr>
+  <td>Jill</td>
+  <td>Smith</td>		
+  <td>
+<a href="http://www.yahoo.com" target="_blank">Inner table link</a> </td>
+
+
+
+</tr>
+</table>
+</td>
+</tr>
+
+</table>
+
+<br>
+<a href="http://www.naukri.com" target="_blank">Out side the table</a> 
+<br>
+<input type="checkbox" name="Vehicle" value="Car">Out side the table checkbox</td> 
+
+
+
+
+
+<br>
+<br>
+<table border = "3" style="width:300px">
+<tr>
+  <td>Jill</td>
+  <td>Smith</td>		
+  <td>
+<a href="http://www.google.com" target="_blank">Inner table link</a> </td>
+</tr>
+<tr>
+  <td>Eve</td>
+  <td>Jackson</td>		
+  <td><input type="checkbox" name="vehicle" value="BBike">I have a bike
+  <td><input type="checkbox" name="vehicle" value="Car">I have a car</td>  
+</tr>
+<tr>
+  <td>John</td>
+  <td>Doe</td>		
+  <td>80</td>
+   <td><table border = "3" style="width:100px">
+  <tr>
+  <td>Jill</td>
+  <td>Smith</td>		
+  <td>
+<a href="http://www.yahoo.com" target="_blank">Inner table link</a> </td>
+
+
+
+</tr>
+</table>
+</td>
+</tr>
+
+</table>
+
+<br>
+<a href="http://www.naukri.com" target="_blank">Out side the table</a> 
+<br>
+<input type="checkbox" name="Vehicle" value="Car">Out side the table checkbox</td> 
+<br>
+<p>This is my first paragraph.</p>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ul, #myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+</style>
+
+
+<h2>Tree View</h2>
+<p>A tree view represents a hierarchical view of information, where each item can have a number of subitems.</p>
+<p>Click on the arrow(s) to open or close the tree branches.</p>
+
+<ul id="myUL">
+  <li><span class="caret">Beverages1</span>
+    <ul class="nested">
+      <li>Water</li>
+      <li>Coffee</li>
+      <li><span class="caret">Tea1</span>
+        <ul class="nested">
+          <li>Black Tea</li>
+          <li>White Tea</li>
+          <li><span class="caret">Green Tea1</span>
+            <ul class="nested">
+              <li>Sencha</li>
+              <li>Gyokuro</li>
+              <li>Matcha</li>
+              <li>Pi Lo Chun</li>
+            </ul>
+          </li>
+        </ul>
+      </li>  
+    </ul>
+  </li>
+</ul>
+
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
+
+<table id="maintab" border=1> 
+
+<tr id=BPT> 
+<td>HP Business Process Testing</td> 
+<td> <input type="button" value="Buy"> </td> 
+</tr> 
+
+<tr id=QC> 
+<td>HP Quality Center</td> 
+<td><input type="button" value="Buy"></td> 
+</tr> 
+
+<tr id=QTP> 
+<td >HP QuickTest Professional</td> 
+<td> <input type="button" value="Buy"> </td> 
+</tr> 
+</table>
+
+
+</body> </html>
