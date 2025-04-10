@@ -1,6 +1,6 @@
 print("This is the simple file to test the result")
 
-driver = webdriver.Chrome
+# driver = webdriver.Chrome
 
 
 # python -m ensurepip

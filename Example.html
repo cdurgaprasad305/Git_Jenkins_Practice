@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Test User">
@@ -40,6 +40,9 @@
             text-align: left;
         }
     </style>
+
+
+
 </head>
 
 <body>
@@ -54,6 +57,32 @@
         <a href="#form-section" id="internal-link">Go to Form Section (Internal Link)</a><br>
         <a href="#" id="broken-link">This is a broken link</a><br>
     </div>
+
+
+    <!-- Shadow Host -->
+    <div id="shadow-host"></div>
+
+    <script>
+        // Select the shadow host
+        const shadowHost = document.getElementById('shadow-host');
+
+        // Attach an open Shadow DOM
+        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+
+        // Create a button element inside the Shadow DOM
+        const button = document.createElement('button');
+        button.id = 'shadow-btn';
+        button.textContent = 'Click Me';
+
+        // Append button to Shadow DOM
+        shadowRoot.appendChild(button);
+
+        // Add event listener to the button inside the Shadow DOM
+        button.addEventListener('click', () => {
+            alert('Button inside Shadow DOM clicked!');
+        });
+    </script>
+
 
     <!-- Forms Section -->
     <div class="section" id="form-section">

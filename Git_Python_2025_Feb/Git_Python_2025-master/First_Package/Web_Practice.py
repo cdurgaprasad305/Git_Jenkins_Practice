@@ -11,24 +11,20 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common import NoSuchElementException, JavascriptException
 from selenium.webdriver import ActionChains, Keys, DesiredCapabilities
-
+"""
 driver = webdriver.Chrome()
 driver.implicitly_wait(10)
 driver.maximize_window()
-
+"""
 # driver.get("https://www.google.com")
 # driver.get("https://www.amazon.in")
-driver.get("file:///E:/Python%202024_6/First.html")
+# driver.get("file:///E:/Python%202024_6/First.html")
 # driver.get("https://practicetestautomation.com/practice-test-login")
-
-# reading data using Json file
-with open("Data.json", "r") as file:
-    js_data = json.load(file)
+# driver.get("https://testbook.com/tspsc-group-2/test-series")
 
 # 1 save_screenshot, send_keys and CSS Selector
 """
-# driver.get("https://practicetestautomation.com/practice-test-login")
-# un = driver.find_element(By.XPATH, "//*[@id='username']")
+# student_input = driver.find_element(By.XPATH, "//*[@id='username']")
 student_input = driver.find_element(By.CSS_SELECTOR, "input#username")
 student_input.send_keys("student")
 student_input.screenshot("ex2.png")
@@ -37,20 +33,26 @@ driver.find_element(By.XPATH, "//button[@id='submit']").click()
 driver.save_screenshot("ex.png")
 """
 
-# 2 Page title, selected link in a group of web elements
+# 2 Page title, selected link in a group of web elements, reading data using JSON file
 """
+with open("Data.json", "r") as file:
+    js_data = json.load(file)
+
 mobile_link ="//a[text()='Mobiles']"
 def page_title():
-    # driver.find_element(By.XPATH, "//a[text()='Mobiles']").click()
+    # driver.find_element(By.XPATH, "//a[text()='Mobiles']").click
+    # driver.find_element(By.LINK_TEXT, "Mobiles").click
+    # driver.find_element(By.PARTIAL_LINK_TEXT, "Mobi").click()
     driver.find_element(By.XPATH, mobile_link).click()
     print("Sell Page Title :", driver.title)
+
 page_title()
 
-# Click on selected link, in a group of web elements bannar 
+# Click on a selected link, in a group of web elements banners
 def link_in_set(l_name):
     link_list = driver.find_element(By.ID, "nav-xshop")
-    link_count = link_list.find_elements(By.TAG_NAME, "a") # or
-    # link_list.find_element(By.XPATH, "//a[text()='Mobiles']").click()
+    link_count = link_list.find_elements(By.TAG_NAME, "a")
+
 
     # for i in range(len(link_count)):
     for lc in link_count:
@@ -71,7 +73,7 @@ driver.find_element(By.PARTIAL_LINK_TEXT, "Mobi").click()
 print("-------Page Title-------- :", driver.title)
 
 # OP:
-# Page Title : Mobile Phones: Buy New Mobiles Online at Best Prices in India |
+# Page Title: Mobile Phones: Buy New Mobiles Online at Best Prices in India |
 # Buy Cell Phones Online - Amazon.in
 
 mov_element = driver.find_element(By.XPATH, "//*[@id='nav-link-accountList']")
@@ -86,7 +88,7 @@ print("Your Account Page Title :", driver.title)
 
 # 4 clear text, retrieve the text, double-click, right-click,
 # static text information, Entire page text
-
+"""
 # Entering value in text field
 driver.find_element(By.ID, "name").send_keys("Student")
 driver.find_element(By.ID, "message").send_keys("Hello Selenium")
@@ -97,6 +99,7 @@ driver.find_element(By.ID, "name").clear()  # Clear text field
 # static text information
 test_box = driver.find_element(By.XPATH, "//label[text() ='Message:']").text
 print("----Text_box_name :", test_box)
+
 # OP:
 # ----Name : Student
 # ----Text_box_name : Message:
@@ -109,7 +112,7 @@ rc = driver.find_element(By.ID, "right-click-area")
 ac = ActionChains(driver)
 ac.double_click(rc).perform()  # Double Click
 ac.context_click(rc).perform()  # Right Click
-
+"""
 
 # 5 Selecting drop-down values
 """
@@ -135,33 +138,33 @@ driver.find_element(By.XPATH, "//*[@id='test-form']/label[5]").click()
 # dropdown list box 
 """
 
-# 6 Check box , Radio button, Total no.of check box in a page
+# 6 Check box, Radio button, Total no.of check box in a page
 """
+#---Check box---
 if driver.find_element(By.ID,'terms').is_selected():
     pass
 else:
-    print("----Else blcok is executed----")
+    print("----Else block is executed----")
     driver.find_element(By.ID,'terms').click()
-
 # or
 
 if not driver.find_element(By.ID,'terms').is_selected():
     driver.find_element(By.ID,'terms').click()
-# ------------
 
-//input[@type='radio' and @value = 'male' and @id='male']
-Locate the nth radio button in a group: (//input[@type='radio'])[n]
+#---Radio button---
+# //input[@type='radio' and @value = 'male' and @id='male']
+# Locate the nth radio button in a group: (//input[@type='radio'])[n]
+# //*[@type='radio' and @value = 'male' and @id='male']
 
-//*[@type='radio' and @value = 'male' and @id='male']
-----Explanation---- 
-//* : Matches any element in the DOM.
-[@type='radio'] : Ensures the element is an `input` element of type `radio`.
-[@value='male'] : Adds a filter to match only the radio button with the value `male`.
-[@id='male'] : Ensures that the specific radio button has an ID of `male`.
+# ----Explanation----
+# //* : Matches any element in the DOM.
+# [@type='radio'] : Ensures the element is an `input` element of type `radio`.
+# [@value='male'] : Adds a filter to match only the radio button with the value `male`.
+# [@id='male'] : Ensures that the specific radio button has an ID of `male`.
 
 driver.find_element(By.XPATH , "//input[@type='radio' and @value = 'male' and @id='male']").click()
-# if already radio button is selected, it will keep as it is.. 
-# //*[@id="terms"]
+# if already RADIO button is selected, it will keep as it is.. 
+# //*[@id="terms"] 
 
 tot_check_box = driver.find_elements(By.XPATH, "//input[@type='checkbox' and @id='terms']")
 print("----Total no.of check box with Id = terms :", len(tot_check_box))
@@ -172,9 +175,15 @@ print("----Total no.of check box with Id not equal to terms :", len(tot_check_bo
 # ----Total no.of check box with Id not equal to terms : 2
 """
 
-# 7 Explicit Wait, Fluent Wait
+# 7 Explicit Wait, Fluent Wait, Implicit Wait, Static Wait
 """
+time.sleep(5) # Static Wait
+driver.implicitly_wait(10) # Implicit Wait
+
 wait = WebDriverWait(driver ,10)
+web_element = wait.until(EC.visibility_of_element_located((By.XPATH , "//input[@type='text' and @id='name']")))
+# or
+
 web_element = WebDriverWait(driver ,4).until(EC.visibility_of_element_located((By.XPATH , "//input[@type='text' and @id='name']")))
 web_element.send_keys("Info")
 
@@ -189,13 +198,14 @@ web_element.send_keys("Info")
 """
 
 # 8 Alerts, alert exception
-"""driver.find_element(By.XPATH, "//button[@onclick='showAlert()']").click()
+"""
+driver.find_element(By.XPATH, "//button[@onclick='showAlert()']").click()
 al_text = driver.switch_to.alert.text
 print("----Alert Text :", al_text)  # OP: ----Alert Text : This is an alert box!
+
 driver.switch_to.alert.accept()
 driver.find_element(By.XPATH, "//input[@type='text' and @id='name']").send_keys("Info")
 
-# OP: ----Alert Text : This is an alert box!
 # if we have active alert box, we can't perform operations on web page
 # UnexpectedAlertPresentException
 # NoAlertPresentException
@@ -207,8 +217,8 @@ driver.find_element(By.XPATH, "//input[@type='text' and @id='name']").send_keys(
 # //*[@id="message"] -- main page xpath for message box
 # //*[@id="message"] -- frame page xpath for message box
 # We can have same xpath for main page and frame page for a web_element
-# Even if we have unique element_id in frame, it will not interact with the element,
-# unless we swithch_to the frame 
+# Even if we have unique element_id in frame, it will not interact with the element,unless we switch_to the frame 
+
 try:
     driver.switch_to.frame("FrameA") # Provide ID or Frame NAME
     driver.find_element(By.XPATH ,"//*[@id='message']").send_keys("Frame page text")
@@ -223,13 +233,15 @@ print("----Total no.of frames :", len(tot_frames))
 # OP: ----Total no.of frames : 2
 """
 
-# 10 Browser tab, window handle, close specific window, browser tab with action chain
+# 10 Browser Tab, window handle, close specific window, browser tab with an action chain
 """
 # We have to open the new browser in the below formate only...
 driver.execute_script("window.open('https://www.google.com', '_blank');")
 driver.execute_script("window.open('https://bbc.com');")
 driver.execute_script("window.open('https://practicetestautomation.com/practice-test-login');")
 driver.execute_script("window.open('https://www.amazon.in');")
+
+# driver.execute_script("window.scrollBy(0, 1000);") # Similar to pageDown key
 
 parent_window= driver.current_window_handle
 print("----Parent Window :", parent_window)
@@ -257,24 +269,24 @@ driver.close() # closing newly open window
 driver.switch_to.window(parent_window)
 print("----Parent window title : ",driver.title)
 
-ac=ActionChains(driver)
-ac.key_down(Keys.CONTROL).send_keys("t").key_up(Keys.CONTROL).perform()
-
 # OP:
 # ----New Window Handle : 659A28B7F8A9E0B634AD18EBCC5C82B5
 # ----New Window Title : Test Login | Practice Test Automation
 # ----Parent window title :  Web Testing Page
 
+# Open new browser tab using ActionChains Class 
+ac=ActionChains(driver)
+ac.key_down(Keys.CONTROL).send_keys("t").key_up(Keys.CONTROL).perform()
 """
 
-# 11 Dynamic web element, scroll to specific element, console logs
+# 11 Dynamic web element, scroll to a specific element, console logs
 """
 scroll_element = driver.find_element(By.ID,'click-me-button')
 driver.execute_script("arguments[0].scrollIntoView(true);", scroll_element)
 scroll_element.click()
 """
 
-# 14 mobile device, JavaScript, CAPTCHA, 2FA (two-factor-authentication)
+# 14 mobile devices, JavaScript, CAPTCHA, 2FA (two-factor-authentication)
 """
 options = Options()
 options.add_experimental_option("mobileEmulation",{"deviceName":"iPhone X"})
@@ -302,7 +314,7 @@ print(value)
 
 """
 
-# 15 Click element and set value in Input field  using JavaScript
+# 15 Click element and set value in Input field using JavaScript
 # MouseOver and Keyboard Input using JavaScript
 """
 input_name= driver.find_element(By.XPATH ,"//input[@type='text' and @id='name']")
@@ -345,8 +357,11 @@ for cookie in all_cookies:
 ----Cookie Name : session-id  
 
 """
-# 17 Network traffic, Performance metric
-# -----TODO ------
+
+# 17 Network traffic, Performance metric TODO..
+"""
+
+"""
 
 # 18 Navigate back and forward
 """
@@ -354,9 +369,59 @@ driver.back()
 driver.forward()
 """
 
-# 20 Integrate Selenium with PyTest, Generate Test report for Selenium tests
-# Integrate Selenium wtih Jenkins and Git Hub
+
+# 20 Integrate Selenium with PyTest, Generate a Test report for Selenium tests
+# Integrate Selenium with Jenkins and GitHub
 # Integrate with Allure reports
 
-input("Press Enter to Close")
-driver.quit()
+# Recursive function to generate XPaths for all elements
+"""
+def get_all_xpaths(element, current_xpath=""):
+    try:
+        # Get the tag name of the element
+        tag_name = element.tag_name
+
+        # Build the current XPath
+        current_xpath = current_xpath + f"/{tag_name}"
+
+        # Print the current XPath
+        print(current_xpath)
+
+        # Find all child elements
+        children = element.find_elements(By.XPATH, "*")
+
+        # Run the function recursively for every child element
+        for child in children:
+            get_all_xpaths(child, current_xpath)
+
+    except NoSuchElementException:
+        pass  # If an element is not found during traversal, ignore and continue
+
+
+# Start from the root element (HTML element)
+html_element = driver.find_element(By.XPATH, "/html")
+get_all_xpaths(html_element)
+"""
+
+# input("Press Enter to Close")
+# driver.quit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
