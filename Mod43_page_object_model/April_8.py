@@ -1,4 +1,12 @@
 import pytest
+import tkinter as tk
+from tkinter import messagebox
+# Initialize the Tkinter application
+root = tk.Tk()
+root.withdraw()  # Hide the root window
+
+# Use the messagebox
+messagebox.showinfo("Title", "This is a message box!")
 
 """
 def add1(a,b):

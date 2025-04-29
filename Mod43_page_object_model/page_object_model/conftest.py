@@ -15,7 +15,8 @@ def base_fixture():
             prod.load(prodpath)
             base = basepage()
             obj_list.append(base)
-        except Exception:
+        except Exception as e:
+            print("Error in loading properties file: ", e)
             pass
     yield locals()
     with allure.step("Finishing up...."):

@@ -1,7 +1,6 @@
 from collections import Counter
 
 # Replace function
-
 # ---------------------------------
 usr_str = "Hi I am Gandhi, I stay in Gandhi Nagar and studied in Gandhi High School"
 rl_str = usr_str.replace("Gandhi", "Ram", 2)
@@ -22,9 +21,7 @@ print("Printing the set of Characters from the string: ", my_st[0:4])
 
 # ---------------------------------
 
-
 # swapping two numbers with using third variable
-
 a = 10
 b = 20
 print("---Before swapping---")
@@ -70,7 +67,7 @@ print("b: ", b)  # 10
 # ---------------------------------
 
 
-# ***** 1. Basic Python Coding Questions
+#                   ***** 1. Basic Python Coding Questions *****
 
 # How do you print "Hello, World!" in Python?
 print("Hello, World!")
@@ -110,8 +107,8 @@ else:
 
 rstr = "Reverse the text string"
 print("Original String: ", rstr)
-# rstr = rstr[::-1]
-# print("Reversed String: ", rstr)
+rstr = rstr[::-1]
+print("Reversed String: ", rstr)
 # OP:
 # Original String:  Reverse the text string
 # Reversed String:  gnirts txet eht esreveR
@@ -140,7 +137,6 @@ for i in split_str:
 # based : desab
 # on : no
 # words : sdrow
-
 # ----------------------
 
 
@@ -153,10 +149,10 @@ if palstr == palstr[::-1]:
 else:
     print("String is not Palindrome")
 
-    # OP:
-    # Actual String:  madam
-    # String is Palindrome
-    # ----------------------
+# OP:
+# Actual String:  madam
+# String is Palindrome
+# ----------------------
 
 
 # How do you check if a number is prime? TODO...
@@ -164,18 +160,18 @@ else:
 # How do you generate the Fibonacci sequence up to n terms? TODO...
 
 
-# *****2. String Manipulation Questions
+#                         ***** 2. String Manipulation Questions *****
 
 # ----How do you count the number of vowels in a string?
 vol_str = "This is a sample text string contains some vowels for user"
 vol_set = {"a", "e", "i", "o", "u"}
-print("Actual String: ", vol_str)
+print("Actual String:", vol_str)
 for i in sorted(vol_set):
     a_occ = vol_str.count(i)
     print(i, ":", a_occ)
 
 # OP:
-# Actual String:  This is a sample text string contains some vowels for user
+# Actual String:This is a sample text string contains some vowels for user
 # a : 3
 # e : 5
 # i : 4
@@ -240,12 +236,38 @@ for i in spl_str:
 # o : 2
 # u : 2
 
+
+# How to remove vowels from the string
+
+# Ouput string should not contain vowels
+str1 = "count total no.of vowels in the string sample string"
+str1_wd = str1.split()
+
+vol = {"a", "e", "i", "o", "u"}
+no_vol = ""
+# -- Using for loop...
+for i in sorted(vol):
+    no_vol = str1.replace(i, "")
+    str1 = no_vol
+
+print(no_vol)
+wd = no_vol.split()
+for k in range(len(wd)):
+    print(str1_wd[k], "---", wd[k])
+
+# Using only replace function...
+no_vol = str1.replace("a","").replace("e","").replace("i","").replace("o","").replace("u","")
+print(no_vol)
+
+#OP:
+# cnt ttl n.f vwls n th strng smpl strng
+
 # How do you remove spaces from a string?
 
 sp_str = "   the quick brown fox jumps over the lazy dog     "
 print("Actual String:", sp_str)
 print("Modified String:", sp_str.replace(" ", ""))
-# .strip(" ") it will remove the space from both side of the string not in between the string
+# .strip(" ") it will remove the space from both sides of the string not in between the string
 
 # OP:
 # Actual String:    the quick brown fox jumps over the lazy dog
@@ -292,7 +314,7 @@ print("Replaced String: ", rs_str)
 # Replaced String:  Check for the replace string to Check
 
 
-#Rsplit --- The rsplit() method splits a string into a list, starting from the right.
+# Rsplit --- The rsplit() method splits a string into a list, starting from the right.
 filename = "document.final.version.txt"
 name, extension = filename.rsplit(".", 1)
 
@@ -306,20 +328,47 @@ print("File extension:", extension)  # "txt"
 # File extension: txt
 
 
-
 # This code takes a string and splits it into words, then prints each word in reverse order.
 str1 = "This is a sample test string with vowels"
 arr_str = str1.split(" ")
 
-for i in range (len(arr_str)-1,-1,-1):
+for i in range(len(arr_str) - 1, -1, -1):
     print(arr_str[i], end=" ")
 
 # OP:
 # vowels with string test sample a is This
+# -------------- OR -------------------
+str1 = "This is the sample test for Reverse String"
+
+wd = str1.split()
+p = len(wd)
+
+rd = []
+for i in range(p - 1, -1, -1):
+    rd.append(wd[i])
+
+fin_str = " ".join(rd)
+print(fin_str)
+
+# OP:
+# String Reverse for test sample the is This
+# --------------------------------------------
 
 
-# ----How do you check if two strings are Paidrams?
+# ----How do you check if two strings are Palindromes?
 
+str1 = input("Enter Palindrome String:").lower()
+
+pa = str1[::-1]
+if str1 == pa:
+    print("String is palindrome:", str1)
+else:
+    print("String is not Palindrome", str1)
+
+
+# OP:
+# Enter Palindrome String:Madam
+# String is Palindrome: madam
 
 # ---- How do you convert a string to title case?
 
@@ -330,9 +379,9 @@ print("Title case String:", str_title.title())
 # OP:
 # Original String: this is a sample string
 # Title case String: This Is A Sample String
+# -------------------------------------------
 
 # ----How do you extract digits from a string?
-
 
 str1 = "This is a sample string with digits 1234 and some 567 text."
 print("Original String: ", str1)
@@ -353,8 +402,36 @@ print("Digit in the string: ", digits1)
 # Digits in the string:  [1, 2, 3, 4, 5, 6, 7]
 # Digit in the string:  7654321
 
+str1 = "This is 2 a 445 sting22 89 with 980 digits 70"
 
-#---- Counts total occurrence of S and s in the string
+a = ""
+for i in str1:
+    if i.isdigit():
+        a = a + i
+print("Actual String:", str1)
+print("Only Digits from the String:", a)
+
+
+nu_st = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
+for j in sorted(nu_st):
+    k = a.count(j)
+    print(j, "-", k)
+
+# Actual String: This is 2 a 445 sting22 89 with 980 digits 70
+# Only Digits from the String: 2445228998070
+# 0 - 2
+# 1 - 0
+# 2 - 3
+# 3 - 0
+# 4 - 2
+# 5 - 1
+# 6 - 0
+# 7 - 1
+# 8 - 2
+# 9 - 2
+# ------------------------------------------------------
+
+# ---- Counts total occurrence of S and s in the string
 str1 = "Testing stringssSSS"
 Cs_count = str1.count("S")
 ss_count = str1.count("s")
@@ -362,28 +439,201 @@ print("Total occurrence of S and s in the string:", Cs_count + ss_count)
 
 # OP:
 # Total occurrence of S and s in the string: 7
+# ----------------------------------------------
 
-
-
-# -----How do you remove punctuation from a string?
+#  How do you remove punctuation from a string?
 
 import string
 
-text = "Hello, world! How's it going?"
+text = "Hello, world! How's it-going in .com ?"
 clean_text = text.translate(str.maketrans("", "", string.punctuation))
 print(clean_text)
 
-text1 = "Hello, world! How's it going?"
+# OP:
+# Hello world Hows itgoing in com
 
+text1 = "Hello, world! How's it going?"
 special_chars_count = sum(1 for char in text1 if char in string.punctuation)
 print("Special characters count:", special_chars_count)
+# OP:
+# Special characters count: 4
+# ---------------------------------------------
 
+# translate() & maketrans() methods
+#-----------------------------------------------
+trans_table = str.maketrans("abc", "123")
+text = "a cat and a bat"
+result = text.translate(trans_table)
+print(result)  # Output: "1 1t 1nd 1 1t"
+
+
+trans_table = str.maketrans("", "", "aeiou")
+text = "hello world"
+result = text.translate(trans_table)
+print(result)  # Output: "hll wrld"
+
+#----------------------------------------------
+# capitalize() method
+text = "hELLO WORLD"
+print(text.capitalize())  # Output: "Hello world"
+
+#----------------------------------------------
+# endswith(),startswith() method
+filename = "report.pdf"
+print(filename.endswith(".pdf"))  # Output: True
+
+url = "example.com"
+print(url.endswith((".com", ".org", ".net")))  # Output: True
+
+text = "Python programming"
+print(text.startswith("Python"))  # Output: True
+
+filename = "script.py"
+print(filename.startswith(("main_", "script", "code")))  # Output: True
+
+#----------------------------------------------
+# partition() method
+# splits a string into three parts based on the first occurrence of a specified separator
+
+text = "Python is awesome"
+result = text.partition("is")
+print(result)   # Output: ('Python ', 'is', ' awesome')
+print(type(result)) # Output: <class 'tuple'>
+
+text = "hello world"
+print(text.partition("x")) # Output: ('hello world', '', '')
+print(text.partition("o")) # ('hell', 'o', ' world')
+print(text.partition("d")) # ('hello worl', 'd', '')
+
+
+#----------------------------------------------
+# rfind() method
+# The rfind() method in Python is a string method used to find the
+# highest index (i.e., the last occurrence) of a specified
+# substring within a string
+
+text = "This is a sample string for testing."
+
+# Find the last occurrence of "is"
+index = text.rfind("is")
+print(index)  # Output: 5
+
+# Find the last occurrence of "sample"
+index = text.rfind("sample")
+print(index)  # Output: 10
+
+# Substring not found
+index = text.rfind("notfound")
+print(index)  # Output: -1
+
+# Using start and end parameters
+index = text.rfind("is", 0, 4)
+print(index)  # Output: 2
+
+#----------------------------------------------
+# zfill() method
+# Example 1: Padding a string
+s = "42"
+print(s.zfill(5))  # Output: "00042"
+
+# Example 2: No padding needed
+s = "12345"
+print(s.zfill(5))  # Output: "12345"
+
+# Example 3: Padding with a negative number
+s = "-42"
+print(s.zfill(5))  # Output: "-0042"
+
+# Example 4: Padding with a positive sign
+s = "+42"
+print(s.zfill(5))  # Output: "+0042"
+
+#----------------------------------------------
+# removeprefix(),removesuffix() method
+# rs = string.removeprefix("prefix")
+
+# Example 1: Removing a prefix
+text = "unhappy"
+result = text.removeprefix("un")
+print(result)  # Output: "happy"
+
+# Example 2: Prefix not found
+text = "happy"
+result = text.removeprefix("un")
+print(result)  # Output: "happy"
+
+# removesuffix() method
+# Example 1: Removing a suffix
+text = "filename.txt"
+result = text.removesuffix(".txt")
+print(result)  # Output: "filename"
+
+# Example 2: Suffix not found
+text = "filename.txt"
+result = text.removesuffix(".csv")
+print(result)  # Output: "filename.txt"
+
+
+#----------------------------------------------
+
+# The swapcase() method in Python is a string method that returns a new string where all
+# uppercase letters are converted to lowercase and all lowercase letters are
+# converted to uppercase.
+
+# Example of swapcase()
+text = "Hello World!"
+result = text.swapcase()
+print(result)  # Output: "hELLO wORLD!"
+
+# Another example
+text = "Python3.9"
+result = text.swapcase()
+print(result)  # Output: "pYTHON3.9"
+
+#----------------------------------------------
+# join() method
+# Joining a list of strings with a space
+words = ["Hello", "World", "Python"]
+result = " ".join(words)
+print(result)  # Output: "Hello World Python"
+
+#----------------------------------------------
+
+# removesuffix() method
+# Example 1: Removing a suffix
+text = "filename.txt"
+result = text.removesuffix(".txt")
+print(result)  # Output: "filename"
+
+# Example 2: Suffix not found
+text = "filename.txt"
+result = text.removesuffix(".csv")
+print(result)  # Output: "filename.txt"
+
+
+#----------------------------------------------
+# find() method
+# Basic usage
+text = "Hello, World!"
+index = text.find("World")
+print(index)  # Output: 7
+
+# Substring not found
+index = text.find("Python")
+print(index)  # Output: -1
+
+# Using start and end parameters
+text = "Hello, Hello, World!"
+index = text.find("Hello", 1)  # Start searching from index 1
+print(index)  # Output: 7
+
+#----------------------------------------------
 
 # How do you reverse each word in a given string?
 # ----How do you find the first non-repeating character in a string? TODO...
 
 
-# *****3. List and Tuple Coding Questions
+#                            ***** 3. List and Tuple Coding Questions *****
 
 # ----How do you find the sum of elements in a list?
 
@@ -415,7 +665,21 @@ print("Min of elements in a list:", min1)
 # User list: [1, 2, 3, 4, 5, -10, 10.5]
 # Max of elements in a list: 10.5
 # Min of elements in a list: -10
+# ---------------------- OR -----------------------
+my_list = [5, 12, 3, 9, 21, 7]
+max_val = max(my_list)
+print("Max value:", max_val)
 
+my_list = [5, 12, 3, 9, 21, 7]
+min_value = min(my_list)
+print("Minimum value:", min_value)
+print("Sum",sum(my_list))
+
+# Max value: 21
+# Minimum value: 3
+# Sum 57
+
+# -----------------------------------------------------
 
 # ----How do you remove duplicates from a list?
 usr_li = [1, 2, 3, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9]
@@ -435,6 +699,25 @@ print("Duplicate elements in the list:", p)
 
 # OP:
 # Duplicate elements in the list: [3, 4, 10.5]
+# -------------------------------------------------
+
+# ----- Program to find Unique elements in the list
+usr_li = [1, 2, 3, 1, 1, 2, 4, 5, 6, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9]
+print("Actual No.:", usr_li)
+print("Unique list:", set(usr_li))
+ord_set = sorted(set(usr_li))
+
+k = []
+for i in ord_set:
+    p = usr_li.count(i)
+    if p < 2:
+        k.append(i)
+print("Non Duplicate elements:", k)
+
+# Actual No.: [1, 2, 3, 1, 1, 2, 4, 5, 6, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9]
+# Unique list: {1, 2, 3, 4, 5, 6, 7, 9, 10, 10.5}
+# Non Duplicate elements: [6, 7, 9, 10]
+# ---------------------------------------------------
 
 # ---- How do you find the second-largest number in a list?
 usr_li = [1, 2, 3, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9, 10]
@@ -448,6 +731,25 @@ print("Second largest number:", ssl[max1 - 2])
 # User list: [1, 2, 3, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9, 10]
 # Sorted list: [1, 2, 3, 4, 5, 7, 9, 10, 10.5]
 # Second-largest number: 10
+# -----------------------------------------------------
+
+usr_li = [1, 2, 3, 1, 1, 2, 4, 5, 6, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9]
+
+print("Actual No.:", usr_li)
+print("Sorted List:", sorted(usr_li))
+print("Unique Values:", set(usr_li))
+
+p = int(len(set(usr_li)))
+z = set(usr_li)
+t = list(z)
+print("Max.Value in the List:", t[p - 1])
+
+# Sorted List: [1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 6, 7, 9, 10, 10.5, 10.5]
+# Unique Values: {1, 2, 3, 4, 5, 6, 7, 9, 10, 10.5}
+# Max.Value in the List: 10.5
+
+# -----------------------------------------------------
+
 
 # ---- How do you merge two lists into one sorted list?
 usr_li1 = [1, 2, 3, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9, 10]
@@ -462,8 +764,7 @@ print("User list:", sorted(set(new_lst)))
 # ----How do you rotate a list by k positions? TODO...
 
 # ---- How do you find the most frequent element in a list?
-usr_li1 = [    1,    2,    2,    3,    3,    4,    5,3,    10,    3,    10.5,    3,    4,    3,    10.5,3,    7,    3,    9,    10,    1,    1,
-               1,    1,    1,    1,    11,    1,3,]
+usr_li = [1, 2, 3, 1, 1, 2, 4, 5, 6, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9]
 cl = Counter(usr_li1)
 print("All occurrence in the list:", cl)
 print("Count of each occurrence of the number:", cl.most_common())
@@ -496,8 +797,10 @@ usr_li2 = [1, 3, 3, 4, 5, 3, 10.5, 3, 4, 3, 10.5, 7]
 
 counter1 = Counter(usr_li1)
 counter2 = Counter(usr_li2)
-print(counter1) #Counter({3: 6, 2: 2, 4: 2, 10: 2, 1: 1, 5: 1, 10.8: 1, 10.5: 1, 7: 1, 9: 1})
-print(counter2) #Counter({3: 5, 4: 2, 10.5: 2, 1: 1, 5: 1, 7: 1})
+print(
+    counter1
+)  # Counter({3: 6, 2: 2, 4: 2, 10: 2, 1: 1, 5: 1, 10.8: 1, 10.5: 1, 7: 1, 9: 1})
+print(counter2)  # Counter({3: 5, 4: 2, 10.5: 2, 1: 1, 5: 1, 7: 1})
 
 common_elements = list((counter1 & counter2).elements())
 print("Common elements in two list:", common_elements)
@@ -512,7 +815,17 @@ for i in sorted(set(usr_li1)):
 print(p)
 
 # [1, 3, 4, 5, 7, 10.5]
+# ---------------------------------------------
 
+# Find words in array contains letter 'a' *#
+words = ['apple', 'banana', 'avocado', 'grape','kiwi','fruit','mango']
+ar = []
+for i in words:
+    if 'a' in i: # it acts as a filter in list of elements
+        print(i)
+        ar.append(i)
+print("Words with letter a:",ar)
+# ---------------------------------------------
 
 # ----How do you flatten a nested list?
 
@@ -530,8 +843,46 @@ nested = [1, [2, [3, 4], 5], 6]
 print(flatten_recursive(nested))  # Output: [1, 2, 3, 4, 5, 6]
 
 
-# *****4. Dictionary and Set Coding Questions
+#                  ***** 4. Dictionary and Set Coding Questions *****
+"""
+Dictionay Object class method 
+'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem',
+'setdefault', 'update', 'values'
+"""
+# the pop() method is used to remove a key-value pair from a dictionary.
 
+dic1 = {"a":70,"b":50,"c":35}
+
+print("Dic Elements:",dic1)
+print("a value:",dic1["a"])
+print("d value:",dic1.get("d"))
+
+# By Using .get() method we can supress error if element is not found
+print("c value:",dic1["c"])
+print("p value:",dic1.get("p","--- Element not found"))
+
+print("Size of Dic:",len(dic1))
+print(dir(dic1))
+
+age = dic1.pop("a")
+print(age)  # Output: 70
+print(dic1) # Output: {'b': 50, 'c': 35}
+
+
+# OP:
+# Dic Elements: {'a': 70, 'b': 50, 'c': 35}
+# a value: 70
+# d value: None
+# c value: 35
+# p value: --- Element not found
+
+
+my_dict = {"a": 1, "b": 2, "c": 3}
+item = my_dict.popitem()
+print(item)       # Output: ('c', 3)
+print(my_dict)    # Output: {'a': 1, 'b': 2}
+
+# --------------------------------------------------
 # ---- How do you merge two dictionaries?
 dict1 = {"a": 1, "b": 2}
 dict2 = {"b": 3, "c": 4}
@@ -545,7 +896,7 @@ dict2 = {"b": 3, "c": 4}
 dict1.update(dict2)
 print(dict1)  # Output: {'a': 1, 'b': 3, 'c': 4}
 
-
+# --------------------------------------------------
 # ---- How do you sort a dictionary by values?
 
 my_dict = {"apple": 3, "banana": 1, "cherry": 2, "biscuit": 4}
@@ -691,7 +1042,7 @@ print(len(set1 & set2) == 0)  # Output: True
 # set1 & set2 gives the intersection.
 
 
-# *****5. Loop and Iteration Coding Questions
+#                 ***** 5. Loop and Iteration Coding Questions *****
 
 # How do you print numbers from 1 to 100 using a loop?
 
@@ -718,7 +1069,7 @@ for i in range(1, 51):
     if i % 2 == 0:
         print(i)
 
-#---- for loop with range values
+# ---- for loop with range values
 for i in range(3):
     print(i)
 # OP
@@ -761,6 +1112,18 @@ for i in range(x):
 print("Total sum value of numbers:", n1)
 # OP:
 # Total sum value of numbers: 29
+# -------------OR----------------
+n = 12345
+str_n = str(n)
+
+su=0
+for i in str_n:
+    su = int(i)+su
+print("The sum of digits:",su)
+# OP: The sum of digits: 15
+
+# ------------------------------------------------
+
 
 # ---- How do you reverse a number using a loop?
 
@@ -784,6 +1147,16 @@ num = 12345
 reversed_num = int("".join(reversed(str(num))))
 print(reversed_num)  # Output: 54321
 
+#--------------OR-----------------
+n = 12345
+str_n = str(n)
+
+su=""
+for i in str_n:
+    su = i+su
+print("Reverse of number:",su)
+# OP: Reverse of number: 54321
+# ------------------------------------------------
 
 # ----- How do you print a pattern of stars (*)?
 
@@ -882,18 +1255,19 @@ for i in range(15, 101, 15):  # Start at 15, step by 15
 for i in range(1, 11):
     print(2, "*", i, "=", 2 * i)
 
-    # 2 * 1 = 2
-    # 2 * 2 = 4
-    # 2 * 3 = 6
-    # 2 * 4 = 8
-    # 2 * 5 = 10
-    # 2 * 6 = 12
-    # 2 * 7 = 14
-    # 2 * 8 = 16
-    # 2 * 9 = 18
-    # 2 * 10 = 20
+# 2 * 1 = 2
+# 2 * 2 = 4
+# 2 * 3 = 6
+# 2 * 4 = 8
+# 2 * 5 = 10
+# 2 * 6 = 12
+# 2 * 7 = 14
+# 2 * 8 = 16
+# 2 * 9 = 18
+# 2 * 10 = 20
 
-# *****6. Function Coding Questions
+#               ***** 6. Function Coding Questions *****
+
 
 # ----- How do you define and call a function in Python?
 def greet():
@@ -905,14 +1279,12 @@ greet()  # Function call
 def greet(name):
     print("Hello,", name)
 
-
 greet("Alice")  # Output: Hello, Alice
 greet("Bob")  # Output: Hello, Bob
 
 
 def square(num):
     return num**2  # Returns the square of the number
-
 
 result = square(5)
 print(result)  # Output: 25
@@ -921,13 +1293,11 @@ print(result)  # Output: 25
 def add(a, b):
     return a + b
 
-
 print(add(3, 5))  # Output: 8
 
 
 def greet(name="Guest"):
     print("Hello,", name)
-
 
 greet()  # Output: Hello, Guest
 greet("Alice")  # Output: Hello, Alice
@@ -1104,6 +1474,7 @@ print(lcm)  # Output: 36
 
 import math
 
+
 def lcm(a, b):
     return (a * b) // math.gcd(a, b)
 
@@ -1155,6 +1526,7 @@ def fibonacci_iterative(n):
 
 print(fibonacci_iterative(6))  # Output: 5
 
+
 # ----- How do you implement a function to check for a prime number?
 def is_prime(n):
     if n < 2:
@@ -1167,6 +1539,7 @@ def is_prime(n):
 
 print(is_prime(11))  # Output: True
 print(is_prime(10))  # Output: False
+
 
 # ----- How do you pass a list to a function and modify it?
 def modify_list(lst):
@@ -1186,12 +1559,11 @@ print(multiply(5, 3))  # Output: 15
 # lambda x, y: x * y → A function that takes two arguments (x, y) and returns their product.
 # Equivalent to:
 
-
 def multiply(x, y):
     return x * y
 
 
-# ----- How do you use the map(), filter(), and reduce() functions?
+# ----- How do you use the map(), filter(), and reduce() functions? *#
 
 # 1. map() – Apply a Function to Each Element
 numbers = [1, 2, 3, 4, 5]
@@ -1199,6 +1571,20 @@ squared = list(map(lambda x: x**2, numbers))
 
 print(squared)  # Output: [1, 4, 9, 16, 25]
 
+# Function to square a number
+def square(num):
+    return num ** 2
+
+# List of numbers
+numbers = [1, 2, 3, 4, 5]
+
+# Apply the square function to each element in the list
+squared_numbers = map(square, numbers)
+
+# Convert the map object to a list
+print(list(squared_numbers))  # Output: [1, 4, 9, 16, 25]
+
+# ------------------------------------------------------------
 
 # 2. filter() – Select Elements That Meet a Condition
 numbers = [1, 2, 3, 4, 5, 6]
@@ -1217,7 +1603,7 @@ product = reduce(lambda x, y: x * y, numbers)
 print(product)  # Output: 120 (1*2*3*4*5)
 
 
-# *****7. File Handling Coding Questions
+#                    ***** 7. File Handling Coding Questions *****
 
 # ----- How do you read a file in Python?
 
@@ -1258,6 +1644,7 @@ try:
         content = file.read()
 except FileNotFoundError:
     print("File not found!")
+# --------------------------------------------------
 
 # ----- How do you write data to a file?
 
@@ -1270,7 +1657,7 @@ with open("example.txt", "w") as file:
 print("Data written successfully!")
 
 
-# 2. Appending to a File ("a") – Keeps Existing Contnt
+# 2. Appending to a File ("a") – Keeps Existing Content
 
 with open("example.txt", "a") as file:
     file.write("Appending this line.\n")
@@ -1315,7 +1702,6 @@ print("JSON data written successfully!")
 
 
 # ----- How do you append data to an existing file?
-
 
 # 1. Using "a" Mode (Append)
 
@@ -1523,14 +1909,14 @@ with open("source.jpg", "rb") as src, open("destination.jpg", "wb") as dest:
 
 print("Binary file copied successfully!")
 
-# ----- How do you find and replace text in a file?
+# ----- How do you find and replace text in a file? *#
 
 # 1. Basic Find and Replace (read() + write())
 
 file_path = "example.txt"
 
 with open(file_path, "r") as file:
-    content = file.read()  # Read entire file
+    content = file.read()  # Read an entire file
 
 content = content.replace("old_text", "new_text")  # Replace text
 
@@ -1673,4 +2059,3 @@ finally:
     if "file" in locals() and not file.closed:
         file.close()
         print("File closed successfully.")
-

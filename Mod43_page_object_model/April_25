@@ -1,0 +1,20 @@
+//Page object model (POM), folder structure
+
+#testcase
+--testdata
+
+driverconfig
+reusable functions
+utility function
+logs/reports
+screenshots
+
+Requiremetn.txt
+conftest.py
+
+environmental fiels
+properties file
+
+
+import josn
+
