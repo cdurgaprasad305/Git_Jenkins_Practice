@@ -9,6 +9,7 @@ print(rl_str)
 # OP:
 # Hi I am Ram, I stay in Ram Nagar and studied in Gandhi High SchoolSchool
 # ---------------------------------
+
 my_st = "Hyderabad"
 ch = my_st.replace("d", "p", 1)
 print("Original String: ", my_st)
@@ -20,6 +21,58 @@ print("Printing the set of Characters from the string: ", my_st[0:4])
 # Printing the set of Characters from the string:  Hyde
 
 # ---------------------------------
+
+# Print alternate char in the string
+str2 = "testing"
+p = 0
+l = []
+for i in range(len(str2)):
+    try:
+        print(str2[i + p])
+        l.append(str2[i + p])
+        p = p + 1
+    except Exception as e:
+        print("string index out of range")
+
+print("".join(l)) # OP: tsig
+
+# ------------OR----------------
+
+str3 = "Testing"
+print(str3[0:1])
+print(str3[2:3])
+print("------")
+p = 0
+q = 1
+t = []
+for i in range(len(str3)):
+    print(str3[p:q])
+    t.append(str3[p:q])
+    p = p + 2
+    q = p + 1
+
+print("".join(t)) # OP: Tsig
+
+
+# Swapping two numbers/strings without using 3rd variable
+a =10
+b=20
+print(f"Value of a is {a}")
+print(f"Value of b is {b}")
+
+a,b = b,a
+print("---After Swaping---")
+print(f"Value of a is {a}")
+print(f"Value of b is {b}")
+
+"""
+op
+Value of a is 10
+Value of b is 20
+---After Swaping---
+Value of a is 20
+Value of b is 10 """
+
 
 # swapping two numbers with using third variable
 a = 10
@@ -65,6 +118,55 @@ print("b: ", b)  # 10
 # a:  20
 # b:  10
 # ---------------------------------
+
+# Swap two strings without 3rd variable
+
+a = "Hello"
+b = "Python"
+
+print("a value before swap:", a)
+print("b value before swap:", b)
+
+a = a + b
+
+b = a[: -len(b)]
+print("b value after swap:", b)
+
+a = a[len(b) : len(a) + 1]
+print("a value after swap:", a)
+
+"""
+OP:
+a value before swap: Hello
+b value before swap: Python
+b value after swap: Hello
+a value after swap: Python """
+
+
+
+a = "Durga"
+b = "Prasad"
+a = a + b
+
+b = a[: -len(b)]
+print("b value after swap:", b)
+
+a = a[len(b) :]
+print("a value after swap: ", a)
+
+# OP:
+# b value after swap: Durga
+# a value after swap:  Prasad
+
+# ---------------------------------
+str2 = "testing"
+print(str2[-1]) # g
+print(str2[:-1]) # testin
+
+print(str2[-3]) # i
+print(str2[:-3]) # test
+
+
 
 
 #                   ***** 1. Basic Python Coding Questions *****
@@ -112,7 +214,7 @@ print("Reversed String: ", rstr)
 # OP:
 # Original String:  Reverse the text string
 # Reversed String:  gnirts txet eht esreveR
-# ----------OR------------
+# ----------OR------------ *#
 rstr = "Reverse the text string"
 rs = ""
 for i in rstr:
@@ -162,7 +264,11 @@ else:
 
 #                         ***** 2. String Manipulation Questions *****
 
-# ----How do you count the number of vowels in a string?
+# ---- String slice
+
+
+
+# ----How do you count the number of vowels in a string? *#
 vol_str = "This is a sample text string contains some vowels for user"
 vol_set = {"a", "e", "i", "o", "u"}
 print("Actual String:", vol_str)
@@ -237,7 +343,7 @@ for i in spl_str:
 # u : 2
 
 
-# How to remove vowels from the string
+# How to remove vowels from the string *#
 
 # Ouput string should not contain vowels
 str1 = "count total no.of vowels in the string sample string"
@@ -338,6 +444,7 @@ for i in range(len(arr_str) - 1, -1, -1):
 # OP:
 # vowels with string test sample a is This
 # -------------- OR -------------------
+
 str1 = "This is the sample test for Reverse String"
 
 wd = str1.split()
@@ -347,7 +454,7 @@ rd = []
 for i in range(p - 1, -1, -1):
     rd.append(wd[i])
 
-fin_str = " ".join(rd)
+fin_str = " ".join(rd) # to make array into string line
 print(fin_str)
 
 # OP:
@@ -630,10 +737,57 @@ print(index)  # Output: 7
 #----------------------------------------------
 
 # How do you reverse each word in a given string?
-# ----How do you find the first non-repeating character in a string? TODO...
 
+str1 = "This is a reverse string in words only"
+print("Actual String:", str1)
+wd = str1.split()
+p = []
+for i in range(len(wd) - 1, -1, -1):
+    p.append(wd[i])
+print("Reverse Order in words: ", " ".join(p))
+""" OP:
+ Actual String: This is a reverse string in words only
+ Reverse Order in words:  only words in string reverse a is This """
+
+# ----How do you find the first non-repeating character in a string?
+str1 = "kissk"
+for i in str1:
+    if str1.count(i) == 1:
+        print("First Non-repeating char:", i)
+        break
+# OP: i
 
 #                            ***** 3. List and Tuple Coding Questions *****
+
+
+# extend
+# append
+# Join using (+)
+# copy
+# clear()
+# del
+# pop
+# insert
+# remove
+# len
+# mylist[1],mylist[-1] second element and last element in the list
+# duplicate elements in the list
+# unique elements in the list
+# Max and Min value in the list
+# Sum of elements in the list
+
+
+sm_list = [1,2,3,4,5,6,7,8,9]
+print("Sum of elements in the list:",sum(sm_list))
+print("Max of elements in the list:",max(sm_list))
+print("Min of elements in the list:",min(sm_list))
+print("Avg of elements in the list:",(sum(sm_list)/len(sm_list)))
+
+# Sum of elements in the list: 45
+# Max of elements in the list: 9
+# Min of elements in the list: 1
+# Avg of elements in the list: 5.0
+
 
 # ----How do you find the sum of elements in a list?
 
@@ -644,9 +798,9 @@ for i in usr_li:
     sum1 = sum1 + i
 print("Sum of elements in a list: ", sum1)
 
-# OP:
-# User list:  [1, 2, 3, 4, 5]
-# Sum of elements in a list:  15
+""" OP:
+User list:  [1, 2, 3, 4, 5]
+Sum of elements in a list:  15 """
 
 # ----How do you find the maximum and minimum element in a list?
 usr_li = [1, 2, 3, 4, 5, -10, 10.5]
@@ -661,10 +815,11 @@ for i in usr_li:
 print("Max of elements in a list:", max1)
 print("Min of elements in a list:", min1)
 
-# OP:
-# User list: [1, 2, 3, 4, 5, -10, 10.5]
-# Max of elements in a list: 10.5
-# Min of elements in a list: -10
+""" OP:
+ User list: [1, 2, 3, 4, 5, -10, 10.5]
+ Max of elements in a list: 10.5
+ Min of elements in a list: -10 """
+
 # ---------------------- OR -----------------------
 my_list = [5, 12, 3, 9, 21, 7]
 max_val = max(my_list)
@@ -680,6 +835,21 @@ print("Sum",sum(my_list))
 # Sum 57
 
 # -----------------------------------------------------
+# Sort the List element...
+si = [1,3,5,7,8,9,0,3,2]
+print("Sorted List",sorted(si))
+# Sorted List [0, 1, 2, 3, 3, 5, 7, 8, 9]
+
+# Append list
+si = [1,3,5,7,8,9,0,3,2]
+print("Original List:",si)
+si.append(100)
+print("Appended List:",si)
+
+# OP:
+# Original List: [1, 3, 5, 7, 8, 9, 0, 3, 2]
+# Appended List: [1, 3, 5, 7, 8, 9, 0, 3, 2, 100]
+
 
 # ----How do you remove duplicates from a list?
 usr_li = [1, 2, 3, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9]
@@ -713,10 +883,10 @@ for i in ord_set:
     if p < 2:
         k.append(i)
 print("Non Duplicate elements:", k)
-
-# Actual No.: [1, 2, 3, 1, 1, 2, 4, 5, 6, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9]
-# Unique list: {1, 2, 3, 4, 5, 6, 7, 9, 10, 10.5}
-# Non Duplicate elements: [6, 7, 9, 10]
+"""
+ Actual No.: [1, 2, 3, 1, 1, 2, 4, 5, 6, 4, 5, 10, 10.5, 3, 4, 10.5, 7, 3, 9]
+ Unique list: {1, 2, 3, 4, 5, 6, 7, 9, 10, 10.5}
+ Non Duplicate elements: [6, 7, 9, 10]  """
 # ---------------------------------------------------
 
 # ---- How do you find the second-largest number in a list?
@@ -842,6 +1012,11 @@ def flatten_recursive(nested_list):
 nested = [1, [2, [3, 4], 5], 6]
 print(flatten_recursive(nested))  # Output: [1, 2, 3, 4, 5, 6]
 
+# Convert list to string
+li = [1, 3, 5, 7, 8, 9, 0, 3]
+result = ''.join(map(str, li))
+print(result)  # Output: "13578903"
+
 
 #                  ***** 4. Dictionary and Set Coding Questions *****
 """
@@ -881,6 +1056,27 @@ my_dict = {"a": 1, "b": 2, "c": 3}
 item = my_dict.popitem()
 print(item)       # Output: ('c', 3)
 print(my_dict)    # Output: {'a': 1, 'b': 2}
+
+# --------------------------------------------------
+# Find the length of Nested Dictionary
+my_dict = {
+    'a': 1,
+    'b': {'b1': 10, 'b2': {'c1':100,'c2':200,'c3':300}},
+    'd': 3
+}
+
+print(len(my_dict)+len(my_dict['b'])+len(my_dict['b']['b2']))  # Output: 8
+
+# OR
+def count_keys(d):
+    count = 0
+    for value in d.values():
+        count += 1
+        if isinstance(value, dict):
+            count += count_keys(value)
+    return count
+
+print(count_keys(my_dict))  # Output: 8
 
 # --------------------------------------------------
 # ---- How do you merge two dictionaries?
@@ -2059,3 +2255,14 @@ finally:
     if "file" in locals() and not file.closed:
         file.close()
         print("File closed successfully.")
+
+# program to find the age elgible for vote with specific range of values:
+x = int(input("Enter age from 1 to 100 : "))
+if 1 < x < 101:
+    if x >= 18:
+        print("Eligible for vote")
+    else:
+        print("Not Eligible for vote")
+
+else:
+    print("Enter valid value")
