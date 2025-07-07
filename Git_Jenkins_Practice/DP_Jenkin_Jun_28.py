@@ -6,7 +6,7 @@ for i in range(1, 6):
 # https://github.com/cdurgaprasad305/Git_Jenkins_Practice.git
 
 """
-Ths is the new code creted by durga for branch testing
+Ths is the new code created by durga for branch testing
 on July 7
 
 
