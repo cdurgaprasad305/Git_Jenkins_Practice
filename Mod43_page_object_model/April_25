@@ -9,7 +9,7 @@ utility function
 logs/reports
 screenshots
 
-Requiremetn.txt
+Requirement.txt
 conftest.py
 
 environmental fiels
@@ -17,4 +17,89 @@ properties file
 
 
 import josn
+
+# ---------------------------------------------------------------------------
+# Page Object Model (POM) - Test Automation Framework Structure
+# ---------------------------------------------------------------------------
+# This structure organizes a test automation project to be scalable,
+# maintainable, and reusable.
+# ---------------------------------------------------------------------------
+
+
+# --- Core Test Directories ---
+
+# testcases/
+# This directory contains all the actual test scripts. Each file should
+# group related tests (e.g., test_login.py, test_dashboard.py).
+
+#   testdata/
+#   This subdirectory stores data used by the tests, such as user credentials,
+#   search queries, or expected results. Common formats are JSON, CSV, or Excel files.
+
+
+# --- Framework Support & Reusable Code ---
+
+# config/
+# A directory to hold all configuration-related files.
+#
+#   driver_config.py or browser_factory.py
+#   Manages the setup and configuration of WebDriver instances for different browsers
+#   (e.g., Chrome, Firefox, Edge).
+#
+#   config.ini or properties.py
+#   Stores global settings for the framework, like application URLs, default timeouts,
+#   and browser choices.
+#
+#   environmental_files/
+#   (Optional) Holds environment-specific configurations (e.g., dev.json, qa.json, prod.json)
+#   to allow tests to run against different environments without code changes.
+
+# pages/
+# (This is a key directory for the Page Object Model)
+# Contains the Page Object classes. Each class represents a page or a major component
+# of the application, encapsulating the web elements and the methods to interact with them.
+
+# utilities/
+# A package for all common helper modules and functions.
+#
+#   reusable_functions.py
+#   Contains high-level, business-specific reusable actions or workflows that can be
+#   used across multiple test cases (e.g., a complete login sequence).
+#
+#   utility_functions.py
+#   Holds generic, low-level helper functions, like reading from Excel/JSON files,
+#   taking screenshots, handling waits, or generating random data.
+
+
+# --- Output Directories ---
+
+# logs/
+# Stores detailed log files generated during test execution, which are essential
+# for debugging failures.
+
+# reports/
+# The destination for test execution reports, often in HTML format, which provide
+# a summary of test results.
+
+# screenshots/
+# A directory where screenshots are saved, typically captured automatically when
+# a test assertion fails.
+
+
+# --- Project Root Files ---
+
+# requirements.txt
+# A standard Python file that lists all project dependencies (e.g., selenium, pytest).
+# Allows for easy setup of the project environment using `pip install -r requirements.txt`.
+
+# conftest.py
+# A special file for the pytest framework. It's used to define fixtures (e.g., browser setup
+# and teardown), hooks, and plugins that are shared across all test files.
+
+
+# --- Example Code Snippet ---
+
+# This is a standard Python library for working with JSON (JavaScript Object Notation) data.
+# It's commonly used in test automation to read test data or configuration files.
+import json
 
