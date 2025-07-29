@@ -18,7 +18,7 @@ driver.find_element(By.PARTIAL_LINK_TEXT,"Digital").click()
 
 #Find number of links in a page
 links=driver.find_elements(By.TAG_NAME,'a')
-links=driver.find_elements(By.XPATH,'//a')
+link=driver.find_elements(By.XPATH,'//a')
 print("total number of links:",len(links))
 
 # print all the link names
@@ -34,22 +34,22 @@ driver.get("https://www.opencart.com/index.php?route=account/register")
 driver.maximize_window()
 
 # drpcountry_ele=driver.find_element(By.XPATH,"//select[@id='input-country']")
-drpcountry=Select(driver.find_element(By.XPATH,"//select[@id='input-country']"))
+drop_country=Select(driver.find_element(By.XPATH,"//select[@id='input-country']"))
 
 #select option from the dropdown
-drpcountry.select_by_visible_text("India")
-drpcountry.select_by_value("10")  #Argentina
-drpcountry.select_by_index(13)  # index
+drop_country.select_by_visible_text("India")
+drop_country.select_by_value("10")  #Argentina
+drop_country.select_by_index(13)  # index
 
 # capture all the options and print them
-alloptions=drpcountry.options
-print("total number of options:",len(alloptions))
+all_options=drop_country.options
+print("total number of options:",len(all_options))
 
-for opt in alloptions:
+for opt in all_options:
      print(opt.text)
 
 # select option from dropdown without using built-in method
-for opt in alloptions:
+for opt in all_options:
      if opt.text=="India":
          opt.click()
          break
@@ -57,7 +57,7 @@ for opt in alloptions:
 allOptions=driver.find_elements(By.XPATH,'//*[@id="input-country"]/option')
 print(len(allOptions))
 
-# ---------------------------------------------------------------------------
+# ---------------**** Checkbox ****-------------------------------------------
 
 
 serv_obj=Service("C:\Drivers\chromedriver_win32\chromedriver.exe")
@@ -99,12 +99,12 @@ for i in range(len(checkboxes)):
     if i<2:
         checkboxes[i].click()
 
-# 6) clearing all the check boxes
+# 6) clearing all the checkboxes
 for checkbox in checkboxes:
     if checkbox.is_selected():
         checkbox.click()
 driver.quit()
-# ------------------------------------------------------------------------
+# --------------------***** Links **** -----------------------------------------
 # we need to install requests package through File-->Settings-->ProjectIntrepreter-->+--> requests
 
 
@@ -132,7 +132,7 @@ for link in allLinks:
 
 print("Total number of broken links:",count)
 
-# --------------------------------------------------------------------------------
+# -------------------**** Alert ***** ---------------------------------------------
 # Alert Windows
 
 driver.get("https://the-internet.herokuapp.com/javascript_alerts")
@@ -142,14 +142,14 @@ driver.maximize_window()
 driver.find_element(By.XPATH,"//button[normalize-space()='Click for JS Prompt']").click()
 time.sleep(5)
 
-alertwindow=driver.switch_to.alert
+alert_window=driver.switch_to.alert
 
-print(alertwindow.text)
-alertwindow.send_keys("welcome")
+print(alert_window.text)
+alert_window.send_keys("welcome")
 
 
-#alertwindow.accept() #close alert window by using OK button
-alertwindow.dismiss() #close alert window by using Cancel button)
+#alert_window.accept() #close alert window by using OK button
+alert_window.dismiss() #close alert window by using Cancel button)
 
 driver.get("https://mypage.rediff.com/login/dologin")
 driver.maximize_window()
@@ -166,7 +166,7 @@ driver.get("http://admin:admin@the-internet.herokuapp.com/basic_auth")
 
 driver.maximize_window()
 
-# --------------------------------------------------------------------------------
+# -----------------**** Browser Windows Handle **** -----------------------------------
 # Handle Browser Windows
 
 driver.get("https://opensource-demo.orangehrmlive.com/")
@@ -203,7 +203,34 @@ for winid in windowsIDs:
     driver.switch_to.window(winid)
     if driver.title=="OrangeHRM HR Software | Free HR Software | HRMS | HRIS" or driver.title=='XYZ':
         driver.close()
-# --------------------------------------------------------------------------------
+
+# Multiple Windows
+
+driver.get("https://testautomationpractice.blogspot.com/")
+
+driver.find_element(By.XPATH,"//input[@id='Wikipedia1_wikipedia-search-input']").send_keys("testing")
+driver.find_element(By.XPATH,"//input[@type='submit']").click()
+
+searchlinks=driver.find_elements(By.XPATH,"//div[@id='Wikipedia1_wikipedia-search-results']//div/a")
+print("Number of links:",len(searchlinks))
+
+print("printing and clicking on links...............")
+for link in searchlinks:
+    print(link.text)
+    link.click()
+
+#After opening all the pages, capture windowid's
+windowIds=driver.window_handles
+
+print("Switching to each browser window and getting the titles........")
+for windowid in windowIds:
+    driver.switch_to.window(windowid)
+    print(driver.title)
+
+driver.quit()
+
+
+# -----------------------**** Frames **** ------------------------------------------
 
 # Frames
 
@@ -233,7 +260,8 @@ driver.switch_to.frame(innerframe)
 driver.find_element(By.XPATH,"//input[@type='text']").send_keys("welcome")
 
 driver.switch_to.parent_frame()  # directly switch to parent frame(outerframe)
-# --------------------------------------------------------------------------------
+
+# --------------------------*****  Date Time ***** ---------------------------
 # Date Time
 import time
 
@@ -248,7 +276,7 @@ print(return_date>dep_date)  # returns true/false
 # true means return date is greater than departure date
 # false means return date is Not greater than departure date
 
-# --------------------------------------------------------------------------------
+# ---------------------------**** ActionChains *****-------------------------------
 # Double click
 
 driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_ev_ondblclick3")
@@ -282,7 +310,7 @@ act.drag_and_drop(wsh_ele,italy_ele).perform()  # drag and drop opration
 
 
 # --------------------------------------------------------------------------------
-# Mouse Hover
+# Mouse Hover *
 
 driver.get("https://opensource-demo.orangehrmlive.com")
 driver.maximize_window()
@@ -317,67 +345,8 @@ driver.find_element(By.XPATH,"//span[normalize-space()='Copy']").click() # copy
 time.sleep(3)
 driver.switch_to.alert.accept()
 
-# --------------------------------------------------------------------------------
-# Scrolling
 
-driver.get("https://www.countries-ofthe-world.com/flags-of-the-world.html")
-driver.maximize_window()
-
-# 1. Scroll down page by pixel
-driver.execute_script("window.scrollBy(0,3000)","")
-value=driver.execute_script("return window.pageYOffset;")
-print("Number of pixels moved:",value) #3000
-
-# 2. Scroll down page till the element is visible
-flag=driver.find_element(By.XPATH,"//img[@alt='Flag of India']")
-driver.execute_script("arguments[0].scrollIntoView();",flag)
-value=driver.execute_script("return window.pageYOffset;")
-print("Number of pixels moved:",value) #5038.3330078125
-
-# 3.scroll down page till end
-driver.execute_script("window.scrollBy(0,document.body.scrollHeight)")
-value=driver.execute_script("return window.pageYOffset;")
-print("Number of pixels moved:",value) #5990.8330078125
-
-time.sleep(5)
-# Scroll up to starting position
-driver.execute_script("window.scrollBy(0,-document.body.scrollHeight)")
-value=driver.execute_script("return window.pageYOffset;")
-print("Number of pixels moved:",value) #0
-
-# --------------------------------------------------------------------------------
-# Slider
-driver.get("https://www.jqueryscript.net/demo/Price-Range-Slider-jQuery-UI/")
-driver.maximize_window()
-
-min_slider=driver.find_element(By.XPATH,"//body//div//span[1]")
-max_slider=driver.find_element(By.XPATH,"//body//div//span[2]")
-
-print("Location of sliders Before moving........")
-print(min_slider.location) #    {'x': 59, 'y': 252}
-print(max_slider.location) #    {'x': 639, 'y': 252}
-
-
-act=ActionChains(driver)
-
-act.drag_and_drop_by_offset(min_slider,100,0).perform()
-act.drag_and_drop_by_offset(max_slider,-39,0).perform()
-
-print("Location of sliders After moving........")
-print(min_slider.location) # {'x': 158, 'y': 252}
-print(max_slider.location) # {'x': 598, 'y': 252}
-
-
-# --------------------------------------------------------------------------------
-# Upload File
-driver.get("https://www.monsterindia.com/")
-driver.maximize_window()
-
-driver.find_element(By.XPATH,"//span[@class='uprcse semi-bold']").click()
-driver.find_element(By.XPATH,"//*[@id='file-upload']").send_keys("C:\SeleniumPractice\sample.pdf")
-
-# --------------------------------------------------------------------------------
-# Keyboard Actions
+#Keyboard Actions
 
 driver.get("https://text-compare.com/")
 driver.maximize_window()
@@ -408,12 +377,72 @@ act.send_keys(Keys.TAB)
 act.perform()
 act.send_keys(Keys.TAB).perform()
 
-#input2   --->Ctrl+V Past the text
+#input2 --->Ctrl+V Past the text
 act.key_down(Keys.CONTROL)
 act.send_keys("v")
 act.key_up(Keys.CONTROL)
 act.perform()
 act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
+
+
+# -------------------------- **** Scrolling ***** -------------------------------------
+# Scrolling
+
+driver.get("https://www.countries-ofthe-world.com/flags-of-the-world.html")
+driver.maximize_window()
+
+# 1. Scroll down page by pixel
+driver.execute_script("window.scrollBy(0,3000)","")
+value=driver.execute_script("return window.pageYOffset;")
+print("Number of pixels moved:",value) #3000
+
+# 2. Scroll down page till the element is visible
+flag=driver.find_element(By.XPATH,"//img[@alt='Flag of India']")
+driver.execute_script("arguments[0].scrollIntoView();",flag)
+value=driver.execute_script("return window.pageYOffset;")
+print("Number of pixels moved:",value) #5038.3330078125
+
+# 3.scroll down page till end
+driver.execute_script("window.scrollBy(0,document.body.scrollHeight)")
+value=driver.execute_script("return window.pageYOffset;")
+print("Number of pixels moved:",value) #5990.8330078125
+
+time.sleep(5)
+# Scroll up to starting position
+driver.execute_script("window.scrollBy(0,-document.body.scrollHeight)")
+value=driver.execute_script("return window.pageYOffset;")
+print("Number of pixels moved:",value) #0
+
+# -------------------------**** Slider ****** ---------------------------------
+# Slider
+driver.get("https://www.jqueryscript.net/demo/Price-Range-Slider-jQuery-UI/")
+driver.maximize_window()
+
+min_slider=driver.find_element(By.XPATH,"//body//div//span[1]")
+max_slider=driver.find_element(By.XPATH,"//body//div//span[2]")
+
+print("Location of sliders Before moving........")
+print(min_slider.location) #    {'x': 59, 'y': 252}
+print(max_slider.location) #    {'x': 639, 'y': 252}
+
+
+act=ActionChains(driver)
+
+act.drag_and_drop_by_offset(min_slider,100,0).perform()
+act.drag_and_drop_by_offset(max_slider,-39,0).perform()
+
+print("Location of sliders After moving........")
+print(min_slider.location) # {'x': 158, 'y': 252}
+print(max_slider.location) # {'x': 598, 'y': 252}
+
+
+# ---------------------- **** Upload & Download File **** -------------------------------------
+# Upload File
+driver.get("https://www.monsterindia.com/")
+driver.maximize_window()
+
+driver.find_element(By.XPATH,"//span[@class='uprcse semi-bold']").click()
+driver.find_element(By.XPATH,"//*[@id='file-upload']").send_keys("C:\SeleniumPractice\sample.pdf")
 
 # --------------------------------------------------------------------------------
 # File Download
@@ -438,7 +467,7 @@ driver.get("https://file-examples.com/index.php/sample-documents-download/sample
 driver.maximize_window()
 driver.find_element(By.XPATH,"//tbody/tr[1]/td[5]/a[1]").click()
 
-# --------------------------------------------------------------------------------
+# --------------------- **** Tabs & Windows  ******  ------------------------------------
 # Tabs & Windows
 
 driver.get("https://demo.nopcommerce.com/")
@@ -447,7 +476,7 @@ regilink=Keys.CONTROL+Keys.RETURN
 driver.find_element(By.LINK_TEXT,"Register").send_keys(regilink)
 
 
-#New Tab - Selenium4 :  Opens a new tab and switches to new tab
+#New Tab - Selenium4 : Opens a new tab and switches to new tab
 driver.get("https://www.opencart.com/")
 driver.switch_to.new_window('tab')
 driver.get("https://www.orangehrm.com/")
@@ -459,7 +488,7 @@ driver.get("https://www.orangehrm.com/")
 
 
 
-# --------------------------------------------------------------------------------
+# ------------------**** Headless testing  ******  -------------------------------
 # Headless testing
 
 def headless_chrome():
@@ -480,7 +509,7 @@ print(driver.title)
 print(driver.current_url)
 driver.close()
 
-# --------------------------------------------------------------------------------
+# --------------- **** Capture Screenshot ***** --------------------------------
 # Capture Screenshot
 
 driver.get("https://demo.nopcommerce.com/")
@@ -495,7 +524,7 @@ driver.get_screenshot_as_png()  #driver.get_screenshot_as_base64() #saves in bin
 driver.quit()
 
 
-# --------------------------------------------------------------------------------
+# -------------------*****   DB Operations  *****   ------------------------------------
 # DB Operations
 
 import mysql.connector
@@ -525,7 +554,7 @@ import mysql.connector
 
 try:
     con=mysql.connector.connect(host="localhost",port=3307,user="root",passwd="root",database="mydb")
-    curs=con.cursor()  # create curosor
+    curs=con.cursor()  # create cursor
     curs.execute(delete_query)  #execute query through cursor
     con.commit() # commit transaction
     con.close()
@@ -543,7 +572,7 @@ driver.maximize_window()
 
 try:
     con = mysql.connector.connect(host="localhost", port=3306, user="root", passwd="root", database="mydb")
-    curs = con.cursor()  # create curosor
+    curs = con.cursor()  # create cursor
     curs.execute("select * from caldata")  # execute query through cursor
 
     for row in curs:
@@ -580,7 +609,7 @@ except:
 driver.close()
 
 
-# --------------------------------------------------------------------------------
+# -----------------**** Excel Operations  ****** -------------------------------
 # Excel Operations
 import openpyxl
 
@@ -629,7 +658,7 @@ sheet.cell(3,1).value=567
 sheet.cell(3,2).value="david"
 sheet.cell(3,3).value="developer"
 
-workbook.save(file)   # save the file after enterign the data
+workbook.save(file)   # save the file after entering the data
 
 # --------------------------------------------------------------------------------
 
@@ -719,33 +748,7 @@ def fillRedColor(file,sheetName,rownum,columnno):
     sheet.cell(rownum,columnno).fill=redFill
     workbook.save(file)
 # --------------------------------------------------------------------------------
-# Multiple Windows
 
-driver.get("https://testautomationpractice.blogspot.com/")
-
-driver.find_element(By.XPATH,"//input[@id='Wikipedia1_wikipedia-search-input']").send_keys("testing")
-driver.find_element(By.XPATH,"//input[@type='submit']").click()
-
-searchlinks=driver.find_elements(By.XPATH,"//div[@id='Wikipedia1_wikipedia-search-results']//div/a")
-print("Number of links:",len(searchlinks))
-
-print("printing and clicking on links...............")
-for link in searchlinks:
-    print(link.text)
-    link.click()
-
-#After opening all the pages, capture windowid's
-windowIds=driver.window_handles
-
-print("Switching to each browser window and getting the titles........")
-for windowid in windowIds:
-    driver.switch_to.window(windowid)
-    print(driver.title)
-
-driver.quit()
-
-
-# --------------------------------------------------------------------------------
 # Mouse Drag and Drop
 
 driver.get("https://testautomationpractice.blogspot.com/")
@@ -865,8 +868,8 @@ else:
     print("Login Test Failed")
 driver.close()
 
-# --------------------------------------------------------------------------------
-# Locators
+# ------------------------------  LOCATORS  ------------------------------------------
+
 
 driver.get("https://demo.nopcommerce.com/")
 driver.maximize_window()  #maximize the browser window
@@ -876,18 +879,18 @@ driver.find_element(By.ID,"small-searchterms").send_keys("Lenovo Thinkpad X1 Car
 driver.find_element(By.NAME,"q").send_keys("Lenovo Thinkpad X1 Carbon Laptop")
 
 
-# linktext & partial linktext
+# LINK_TEXT & PARTIAL_LINK_TEXT
 driver.find_element(By.LINK_TEXT,"Register").click()
 driver.find_element(By.PARTIAL_LINK_TEXT,"Reg").click()
 
 
 sliders=driver.find_elements(By.CLASS_NAME,'homeslider-container')
-print(len(sliders)) #5    total number of sliders on home page
+print(len(sliders)) #5 total number of sliders on home page
 
 links=driver.find_elements(By.TAG_NAME,'a')
 print(len(links)) #  149 total number of links on home page
 
-
+# ------------------------  CSS_SELECTOR
 #tag & id
 driver.find_element(By.CSS_SELECTOR,"input#email").send_keys("abc")
 driver.find_element(By.CSS_SELECTOR,"#email").send_keys("abc")
@@ -904,7 +907,7 @@ driver.find_element(By.CSS_SELECTOR,"[data-testid=royal_email]").send_keys("abc@
 # tag , class & attribute
 driver.find_element(By.CSS_SELECTOR,"input.inputtext[data-testid=royal_pass]").send_keys("xyz")
 
-
+# ------------------------  XPATH
 #Absulte xpath
 driver.find_element(By.XPATH,"/html/body/div/div[1]/header/div[3]/div/div/div[2]/form/input[4]").send_keys("T-shirts")
 driver.find_element(By.XPATH,"/html/body/div/div[1]/header/div[3]/div/div/div[2]/form/button").click()
@@ -977,7 +980,7 @@ print("Total Number of users:",rows)
 print("Number of enabled users:",count)
 print("Number of disabled users:",(rows-count))
 
-# --------------------------------------------------------------------------------
+# ---------------- ****    Date Picker   **** -----------------------------------------
 # Date Picker
 
 year="2022"
@@ -1004,4 +1007,33 @@ for ele in dates:
     if ele.text==date:
         ele.click()
         break
+
+
+# -------------------- ****  Dynamic Wait **** -------------------------------
+
+url = "https://testautomationpractice.blogspot.com/"
+driver.maximize_window()
+driver.implicitly_wait(10)
+driver.get(url)
+
+# Find the element by ID
+# This is a dynamic element, so we will wait for it to be displayed
+# The element is a span with ID "Stats1_totalCount"
+
+tot_count = driver.find_element(By.ID,"Stats1_totalCount")
+# Dynamic wait for the element to be displayed
+for i in range(1,20):
+    if tot_count.is_displayed():
+        break
+    else:
+        time.sleep(0.5)
+        print("web element is not displayed yet, waiting..." ,i)
+
+print("Total Visit Count:",tot_count.get_property("textContent"))
+# print(tot_count.get_property("innerText"))
+# print(tot_count.get_property("innerHTML"))
+
+driver.quit()
+
 # -------------------------------------------------------------------------------
+
