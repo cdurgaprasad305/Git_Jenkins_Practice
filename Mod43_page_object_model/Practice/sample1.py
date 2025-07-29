@@ -266,8 +266,6 @@ else:
 
 # ---- String slice
 
-
-
 # ----How do you count the number of vowels in a string? *#
 vol_str = "This is a sample text string contains some vowels for user"
 vol_set = {"a", "e", "i", "o", "u"}
@@ -345,7 +343,7 @@ for i in spl_str:
 
 # How to remove vowels from the string *#
 
-# Ouput string should not contain vowels
+# Output string should not contain vowels
 str1 = "count total no.of vowels in the string sample string"
 str1_wd = str1.split()
 
@@ -356,15 +354,25 @@ for i in sorted(vol):
     no_vol = str1.replace(i, "")
     str1 = no_vol
 
-print(no_vol)
+print(no_vol) # cnt ttl n.f vwls n th strng smpl strng
 wd = no_vol.split()
 for k in range(len(wd)):
     print(str1_wd[k], "---", wd[k])
 
+# OP:
+# count --- cnt
+# total --- ttl
+# no.of --- n.f
+# vowels --- vwls
+# in --- n
+# the --- th
+# string --- strng
+# sample --- smpl
+# string --- strng
+
 # Using only replace function...
 no_vol = str1.replace("a","").replace("e","").replace("i","").replace("o","").replace("u","")
 print(no_vol)
-
 #OP:
 # cnt ttl n.f vwls n th strng smpl strng
 
@@ -454,28 +462,12 @@ rd = []
 for i in range(p - 1, -1, -1):
     rd.append(wd[i])
 
-fin_str = " ".join(rd) # to make array into string line
+fin_str = " ".join(rd) # to make an array into string line
 print(fin_str)
 
 # OP:
 # String Reverse for test sample the is This
 # --------------------------------------------
-
-
-# ----How do you check if two strings are Palindromes?
-
-str1 = input("Enter Palindrome String:").lower()
-
-pa = str1[::-1]
-if str1 == pa:
-    print("String is palindrome:", str1)
-else:
-    print("String is not Palindrome", str1)
-
-
-# OP:
-# Enter Palindrome String:Madam
-# String is Palindrome: madam
 
 # ---- How do you convert a string to title case?
 
@@ -507,7 +499,7 @@ print("Digit in the string: ", digits1)
 # OP:
 # Original String:  This is a sample string with digits 1234 and some 567 text.
 # Digits in the string:  [1, 2, 3, 4, 5, 6, 7]
-# Digit in the string:  7654321
+#  Digits in the string:  7654321
 
 str1 = "This is 2 a 445 sting22 89 with 980 digits 70"
 
@@ -518,14 +510,15 @@ for i in str1:
 print("Actual String:", str1)
 print("Only Digits from the String:", a)
 
+# Actual String: This is 2 a 445 sting22 89 with 980 digits 70
+# Only Digits from the String: 2445228998070
+
 
 nu_st = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
 for j in sorted(nu_st):
     k = a.count(j)
     print(j, "-", k)
 
-# Actual String: This is 2 a 445 sting22 89 with 980 digits 70
-# Only Digits from the String: 2445228998070
 # 0 - 2
 # 1 - 0
 # 2 - 3
@@ -619,11 +612,11 @@ print(text.partition("d")) # ('hello worl', 'd', '')
 # highest index (i.e., the last occurrence) of a specified
 # substring within a string
 
-text = "This is a sample string for testing."
+text = "This is a sample string for testingis."
 
 # Find the last occurrence of "is"
 index = text.rfind("is")
-print(index)  # Output: 5
+print(index)  # Output: 35
 
 # Find the last occurrence of "sample"
 index = text.rfind("sample")
@@ -995,6 +988,14 @@ for i in words:
         print(i)
         ar.append(i)
 print("Words with letter a:",ar)
+
+# OP:
+# apple
+# banana
+# avocado
+# grape
+# mango
+# Words with letter a: ['apple', 'banana', 'avocado', 'grape', 'mango']
 # ---------------------------------------------
 
 # ----How do you flatten a nested list?
@@ -1058,7 +1059,7 @@ print(item)       # Output: ('c', 3)
 print(my_dict)    # Output: {'a': 1, 'b': 2}
 
 # --------------------------------------------------
-# Find the length of Nested Dictionary
+# Find the length of Nested Dictionary *
 my_dict = {
     'a': 1,
     'b': {'b1': 10, 'b2': {'c1':100,'c2':200,'c3':300}},
@@ -1334,6 +1335,8 @@ for i in range(len(str(num_str))):
 rs = "".join(map(str, r))
 print("Reversed number:", rs)
 
+# The map() function is a built-in Python function used to apply a specific function to every item in
+# an iterable (like a list, tuple, or string) and return an iterator with the results.
 # OP:
 # Actual number: 78923
 # Reversed number 32987
@@ -1887,7 +1890,6 @@ except IOError:
 # Example: Writing JSON Data
 
 import json
-
 data = {"name": "Alice", "age": 25}
 
 with open("data.json", "w") as file:
@@ -2266,3 +2268,4 @@ if 1 < x < 101:
 
 else:
     print("Enter valid value")
+

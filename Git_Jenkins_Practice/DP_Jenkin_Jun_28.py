@@ -1,3 +1,8 @@
+import time
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
 print("---Message from Python Pycharm---")
 
 for i in range(1, 6):
